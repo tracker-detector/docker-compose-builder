@@ -27,38 +27,7 @@ jobs:
         with:
           node-version: '18.x'
       - run: npm install
-      - run: npm run prepublishOnly
-
-  preversion:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-      - run: npm install
-      - run: npm run preversion
-
-  version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-      - run: npm install
-      - run: npm run version
-
-  postversion:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-      - run: npm install
-      - run: npm run postversion
-
+      - run: npm run test
   publish:
     runs-on: ubuntu-latest
     steps:
