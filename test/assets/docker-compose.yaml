@@ -1,0 +1,16 @@
+version: "2"
+services:
+  service:
+    container_name: service
+    image: image
+    command: run service
+    ports:
+      - 80:80
+    restarts: always
+    environment:
+      - SomeVar: "1"
+    volumes:
+      - dist:/dist
+volumes:
+  - someVolume: {}
+  - someOtherVolume: {}

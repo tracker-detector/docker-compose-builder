@@ -5,7 +5,7 @@ export type RestartPolicy = "no" | "always" | "unless-stopped" | "on-failure"
 export type ServiceConfig =  {
     [propName: string]: any,
     name? : string,
-    service_name?: string,
+    container_name?: string,
     image?: string,
     build?: string,
     restarts?: RestartPolicy,
@@ -24,7 +24,7 @@ export class Service implements Composable {
         constructor(public readonly name: string) { }
 
         withServiceName(service_name: string): this {
-            this.config['service_name'] = service_name
+            this.config['container_name'] = service_name
             return this
         }
 

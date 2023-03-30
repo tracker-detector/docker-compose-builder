@@ -1,5 +1,7 @@
 import { Service } from "./service";
 import { Volumes } from "./volumes";
+import { stringify } from 'yaml';
+import { existsSync, unlinkSync, appendFileSync } from 'fs'
 
 export type DockerComposeConfig = {
     [propName: string]: any,
@@ -36,7 +38,7 @@ export class DockerCompose {
         return new this.DockerComposeBuilder()
     }
 
-    generateYAMLJSON() {
+    private generateYAMLJSON() {
         let resultYaml: any = {}
         let services: any = {}
         if (this.dockerComposeConfig.version != null) {
@@ -57,4 +59,10 @@ export class DockerCompose {
         }
         return resultYaml
     }
+
+    createDockerComposeFile(fileName: string) {
+        if (existsSync(fileName)) unlinkSync(fileName);
+        appendFileSync(fileName, stringify(this.generateYAMLJSON()))
+    }
 }
+
