@@ -1,0 +1,17 @@
+version: "2"
+services:
+  minio:
+    container_name: minio
+    image: minio/minio
+    environment:
+      - MINIO_ROOT_USER: admin
+      - MINIO_ROOT_PASSWORD: StronPassword
+    command: server --console-address ":9001" /data
+  db:
+    container_name: db
+    image: mongo:latest
+    volumes:
+      - mongo_storage:/data/db
+volumes:
+  - minio_storage: {}
+  - mongo_storage: {}
