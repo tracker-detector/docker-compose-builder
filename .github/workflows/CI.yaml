@@ -14,8 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
+        with:
+          node-version: '18.x'
       - run: npm install
       - run: npm run prepare
 
@@ -24,8 +24,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
+        with:
+          node-version: '18.x'
       - run: npm install
       - run: npm run prepublishOnly
 
@@ -34,8 +34,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
+        with:
+          node-version: '18.x'
       - run: npm install
       - run: npm run preversion
 
@@ -44,8 +44,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
+        with:
+          node-version: '18.x'
       - run: npm install
       - run: npm run version
 
@@ -54,8 +54,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      with:
-        node-version: '18.x'
+        with:
+          node-version: '18.x'
       - run: npm install
       - run: npm run postversion
 
